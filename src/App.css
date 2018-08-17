@@ -1,0 +1,56 @@
+
+.litel {
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+#root {
+  width: 650px;
+}
+#root div form {
+  margin-bottom: 15px;
+  width: 400px;
+}
+#root div form h1 {
+  font: 25px bold;
+}
+#root div form div {
+  margin: 5px 0px;
+  width: 300px;
+}
+#root div form div label {
+  display: flex;
+  justify-content: space-between;
+}
+#root div ul {
+  width: 650px;
+}
+#root div ul li {
+  display: flex;
+  justify-content: flex-start;
+}
+#root div ul li #index_s {
+  width: 30px;
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+#root div ul li #name_s {
+  width: 150px;
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+#root div ul li #tel_s {
+  width: 150px;
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+#root div ul li #email_s {
+  width: 200px;
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+#root div ul li #group_s {
+  width: 70px;
+  overflow-wrap: break-word;
+  margin: 0 5px;
+}
+/*# sourceMappingURL=app.css.map */
