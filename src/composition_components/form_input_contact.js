@@ -7,10 +7,10 @@ import React from "react";
 import ButtonSub from "./button_sub";
 import InputField from "./input_field";
 
-const FormInputContact = ({pushPersons, object, changeValue, setGroup, state, id})=>{
+const FormInputContact = ({pushPersons, object, changeValue, setGroup, state, id, objectErrors})=>{
     return (<form id = {id} onSubmit = {pushPersons}>
             <h1>Введите контактные данные</h1>
-            <InputField object = {object} changeValue = {changeValue} state = {state}/>
+            <InputField object = {object} changeValue = {changeValue} state = {state} objectErrors = {objectErrors}/>
             <ButtonSub name ="Записать контакт"/>
             </form>
             );
