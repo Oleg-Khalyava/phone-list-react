@@ -32,7 +32,7 @@ class App extends Component {
                  };
   clearErrorEmptyField(){
       let newObject = Object.assign({},this.state);
-      if (newObject.objectErrors.name === "*обязательное поле для заполнения" || newObject.objectErrors.name === "*обязательное поле для заполнения" ){
+      if (newObject.objectErrors.name === "*обязательное поле для заполнения" || newObject.objectErrors.tel === "*обязательное поле для заполнения" ){
       if (newObject.objectErrors.name === "*обязательное поле для заполнения"){
           newObject.objectErrors.name = "";
       };
@@ -92,13 +92,18 @@ class App extends Component {
           } 
           case "tel":{
                   if (/^\d+$/.test(target.value)){
-                        if (/^\d{1,11}$/.test(target.value)){newObject.objectErrors.tel = "";}
-                        else {
-                            newObject.objectErrors.emptyTelColor = "";
-                            newObject.objectErrors.tel = "Ошибка ввода - максимальная длина номера телефона составляет 11 цифр";
+                        if(/^[^0]/.test(target.value)){
+                             if (/^\d{1,11}$/.test(target.value)){newObject.objectErrors.tel = "";}
+                             else {
+                                 newObject.objectErrors.emptyTelColor = "";
+                                 newObject.objectErrors.tel = "Ошибка ввода - максимальная длина номера телефона составляет 11 цифр";
+                                  }
                         }
-                     }
-                 
+                        else{
+                             newObject.objectErrors.emptyTelColor = "";
+                             newObject.objectErrors.tel = 'Ошибка ввода - номер не можена начинаться с цифры "0"';
+                        }; 
+                  }
                   else {
                       if(target.value.length === 0){newObject.objectErrors.tel = "";}
                       else {
