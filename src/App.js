@@ -101,7 +101,7 @@ class App extends Component {
                         }
                         else{
                              newObject.objectErrors.emptyTelColor = "";
-                             newObject.objectErrors.tel = 'Ошибка ввода - номер не можена начинаться с цифры "0"';
+                             newObject.objectErrors.tel = 'Ошибка ввода - номер не может начинаться с цифры "0"';
                         }; 
                   }
                   else {
