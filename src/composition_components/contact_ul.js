@@ -8,14 +8,16 @@ import ContactLi from "./contact_li";
 
 
 const ContactUl = ({persons}) =>(
-        <ul> <ContactLi index = "№" name = "Имя" tel = "Номер тел." email = "E-mail" group = "Группа"/>
+        <ul> <ContactLi index = "№" name = "Имя" tel = "Номер тел." email = "E-mail" group = "Группа" visible ="hidden" />
             {                              persons.map ( (item, index)=>(<ContactLi 
                                             key = {index}
                                             index = {index+1} 
                                             name = {item.name} 
                                             tel = {item.tel}
                                             email = {item.email} 
-                                            group = {item.group}/>
+                                            group = {item.group}
+                                            visible ="visible"
+                                            />
                                            )               
                         )
              }

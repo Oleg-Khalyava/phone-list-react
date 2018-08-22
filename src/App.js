@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, {Component } from 'react';
 import FormInputContact from "./composition_components/form_input_contact";
 import ContactUl from "./composition_components/contact_ul";
-
 import "./App.css";
-
 
 class App extends Component {
   constructor () {
       super();
       this.state = {arrContacts:[],
-                   objectContact:{name:"",
+                    saveArrContacts:[],
+                    saveCount:true,
+                   objectContact:{  
+                                    name:"",
                                     tel: "",
                                     email: "",
                                     group: ""
@@ -29,7 +30,9 @@ class App extends Component {
        this.checkErrors = this.checkErrors.bind(this);
        this.emptyField = this.emptyField.bind(this);
        this.clearErrorEmptyField = this.clearErrorEmptyField.bind(this);
+       this.handleSearch = this.handleSearch.bind(this);
                  };
+ 
   clearErrorEmptyField(){
       let newObject = Object.assign({},this.state);
       if (newObject.objectErrors.name === "*обязательное поле для заполнения" || newObject.objectErrors.tel === "*обязательное поле для заполнения" ){
@@ -155,7 +158,17 @@ class App extends Component {
       this.setState (newObject);
           };
   };
-
+  handleSearch (event){
+     let inputName = event.target.value.toLowerCase();
+     let newObject = Object.assign({},this.state);
+     if (newObject.saveCount === true){newObject.saveArrContacts = newObject.arrContacts;};
+     inputName.length === 0 ? newObject.saveCount = true : newObject.saveCount = false;
+     newObject.arrContacts= newObject.saveArrContacts.filter (function (item){
+         return item.name.toLowerCase().indexOf(inputName) !==-1;
+     });
+     this.setState(newObject);
+  };
+  handleDelete(){};
   render (){return ( <div>
                      <FormInputContact 
                                     id ="field-input"
@@ -165,17 +178,21 @@ class App extends Component {
                                     state ={this.state}
                                     objectErrors ={this.state.objectErrors}
                      />
+                     <label>Поиск
+                     <input type ="search" id ="search" placeholder = "введите имя" onChange = {this.handleSearch}/>
+                     </label>
                      <ContactUl persons = {this.state.arrContacts}/>
                      </div>     
                   );
                 };
   componentDidMount (){
-                        let newObjectContact = Object.assign({},this.state.objectContact, {group: document.getElementById("select").value});
+                       let newObjectContact = Object.assign({},this.state.objectContact, {group: document.getElementById("select").value});
                         let newObject = Object.assign({},this.state, {objectContact: newObjectContact});
                         this.setState (newObject);
-  
-      /*this.state.objectContact.group = document.getElementById("select").value;*/
+                        var objectArr= require('./jsonobject.json');
+                        this.setState({arrContacts:objectArr});
   };
 
                       };
+                      
 export default App;
