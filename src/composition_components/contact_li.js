@@ -11,7 +11,7 @@ const ContactLi = ({index,name,tel,email,group, visible})=>(<li>
                                                          <span id="tel_s">{tel}</span>
                                                          <span id = "email_s">{email}</span>
                                                          <span id="group_s">{group}</span>
-                                                         <input type="checkbox" id="delete" style = {{visibility:visible}}/>
+                                                         <input type="checkbox" class = "delete" name ={index} style = {{visibility:visible}}/>
                                                     </li>);
 
 export default ContactLi;

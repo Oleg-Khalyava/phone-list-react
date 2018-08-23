@@ -1,1 +1,7 @@
-[{"name":"Оля","tel":89521119988,"email":"olia@mail.ru","group":"друзья"},{"name":"Денис","tel":89520778988,"email":"denis@mail.ru","group":"друзья"}]
+[{"id":1,"name":"Оля","tel":89521119988,"email":"olia@mail.ru","group":"друзья"},
+ {"id":2,"name":"Денис","tel":89520778988,"email":"denis@mail.ru","group":"друзья"},
+ {"id":3,"name":"Иван","tel":89588819988,"email":"ivan@mail.ru","group":"коллеги"},
+ {"id":4,"name":"Дмитрий","tel":89529919988,"email":"dmitrij@mail.ru","group":"друзья"},
+ {"id":5,"name":"Николай","tel":89118997767,"group":"коллеги"},
+ {"id":6,"name":"Лариса","tel":25713,"group":"друзья"},
+ {"id":7,"name":"Виктор","tel":89521119988,"email":"vt@mail.ru","group":"друзья"}]

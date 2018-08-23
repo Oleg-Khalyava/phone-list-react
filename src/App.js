@@ -9,7 +9,7 @@ class App extends Component {
       this.state = {arrContacts:[],
                     saveArrContacts:[],
                     saveCount:true,
-                   objectContact:{  
+                   objectContact:{  id:"", 
                                     name:"",
                                     tel: "",
                                     email: "",
@@ -31,6 +31,7 @@ class App extends Component {
        this.emptyField = this.emptyField.bind(this);
        this.clearErrorEmptyField = this.clearErrorEmptyField.bind(this);
        this.handleSearch = this.handleSearch.bind(this);
+       /*this.handleDelete = this.handleDelete.bind(this);*/
                  };
  
   clearErrorEmptyField(){
@@ -148,11 +149,11 @@ class App extends Component {
       let error = this.checkErrors();
       let empty = this.emptyField();
       if (error&&empty){
-      let pushObject = Object.assign({},this.state.objectContact);
+      let pushObject = Object.assign({},this.state.objectContact,{id:this.state.arrContacts.length+1});
       let newObject = Object.assign({},this.state,{objectContact:{name:"",
                                     tel: "",
                                     email: "",
-                                    group: pushObject.group
+                                    group: pushObject.group,
                                 }});
       newObject.arrContacts.push(pushObject);
       this.setState (newObject);
@@ -168,7 +169,26 @@ class App extends Component {
      });
      this.setState(newObject);
   };
-  handleDelete(){};
+  /*handleDelete(){
+      let newObject = Object.assign({},this.state);
+      let arrCheckbox = document.getElementsByClassName("delete");
+      let arrIndexDelete = [];
+      for (let i = 0; i < arrCheckbox.length; i++){
+          let item = arrCheckbox[i];
+          if (item.checked === true){
+              arrIndexDelete.push (parseInt(item.name));
+          };
+      };
+      for (let i =0;i<arrIndexDelete.length;i++){
+          for (let n = 0;n<newObject.arrContacts.length;n++){
+              if (newObject.arrContacts[n].id === arrIndexDelete[i]){
+                newObject.arrContacts.splice(n,1);
+                break;
+              };
+          };   
+      };
+      this.setState(newObject);
+  };*/
   render (){return ( <div>
                      <FormInputContact 
                                     id ="field-input"
@@ -178,8 +198,9 @@ class App extends Component {
                                     state ={this.state}
                                     objectErrors ={this.state.objectErrors}
                      />
-                     <label>Поиск
+                     <label>
                      <input type ="search" id ="search" placeholder = "введите имя" onChange = {this.handleSearch}/>
+                     <img src="worker.png"></img>
                      </label>
                      <ContactUl persons = {this.state.arrContacts}/>
                      </div>     

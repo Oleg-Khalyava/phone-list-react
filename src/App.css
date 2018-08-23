@@ -53,4 +53,7 @@
   overflow-wrap: break-word;
   margin: 0 5px;
 }
+img {position: relative;
+    top: 13px;
+    left: 15px}
 /*# sourceMappingURL=app.css.map */
